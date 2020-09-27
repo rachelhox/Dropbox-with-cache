@@ -29,7 +29,8 @@ let caches = {};
 
 // Promised version of Read and Write files
 
-// writeFile is a function which takes the name of the file and the body (data) for storage - it will write the file to our uploadDirectory 'uploaded', this promise resolves with the name of the file
+// writeFile is a function which takes the name of the file and the body (data) for storage
+// - it will write the file to our uploadDirectory 'uploaded', this promise resolves with the name of the file
 function writeFile(name, body) {
   return new Promise((resolve, reject) => {
     fs.writeFile(uploadDirectory + path.sep + name, body, (err) => {
@@ -42,7 +43,8 @@ function writeFile(name, body) {
   }).then(readFile);
 }
 
-// readFile is a function which takes the file as an input, it goes to the 'uploaded' directory that we serve via express. It will then look for the name of the file that we pass into the function, the promise will resolve with the body of the file (the data)
+// readFile is a function which takes the file as an input, it goes to the 'uploaded' directory that we serve via express.
+// It will then look for the name of the file that we pass into the function, the promise will resolve with the body of the file (the data)
 
 function readFile(file) {
   return new Promise((resolve, reject) => {
