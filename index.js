@@ -27,6 +27,8 @@ app.use(express.static(__dirname + "/public"));
 // Declare a variable named caches, define it as an empty object
 let caches = {};
 
+let JSONdata = JSON.stringify(caches, null, 2);
+
 // Promised version of Read and Write files
 
 // writeFile is a function which takes the name of the file and the body (data) for storage
@@ -59,11 +61,22 @@ function readFile(file) {
 }
 
 app.get("/", (req, res) => {
-  // logic for reading your uploaded file and storing al the data back into a cache reach reload
+  // logic for reading your uploaded file and storing all the data back into a cache reach reload
   res.sendFile(__dirname + "/pages/index.html");
 });
 
 console.log(caches);
+
+// my attempt on reading files to JSON:
+// const JSON = (name, data) => {
+//   fs.writeFile("uploads.json", JSONdata, (err) => {
+//     if (err) {
+//       return reject(err);
+//     } else {
+//       resolve(JSONdata);
+//     }
+//   }).then(readFile);
+// };
 
 app.post("/files", (req, res) => {
   // after the request path upload.single('upload'),
@@ -78,7 +91,7 @@ app.post("/files", (req, res) => {
       caches[file]
         .then(() =>
           res.end(
-            "Wow you sent a file, can you remember how to download it? Goto your browser, url: localhost:3000/uploaded/:file-name"
+            "Wow you sent a file, can you remember how to download it? Goto your browser, url: localhost:8080/uploaded/:file-name"
           )
         )
         .catch((error) => {
@@ -97,7 +110,7 @@ app.post("/files", (req, res) => {
     caches[file]
       .then(() =>
         res.send(
-          "Wow you sent a file, can you remember how to download it? Goto your browser, url: localhost:3000/uploaded/:file-name"
+          `Wow you sent a file, can you remember how to download it? Goto your browser, url: localhost:8080/uploaded/:file-name <button><a type="button" target="_blank" href="/uploaded/${file}">download</a></button>`
         )
       )
       .catch((e) => res.status(500).send(e.message));
