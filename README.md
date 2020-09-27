@@ -3,7 +3,7 @@
 ">
 <p align="center">
   <img src="./public/Dropbox-Screenshot.png" style="
-    width: 250px
+    width: 200px
   "/>
 </p>
 
