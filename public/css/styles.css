@@ -26,8 +26,17 @@ body {
   box-shadow: 0.3rem 0.3rem 0.3rem rgba(62, 41, 255, 0.1);
 }
 
+p {
+  color: rgba(24, 38, 238, 1);
+}
+
 .card-header {
-  background-color: rgba(71, 82, 243, 0.3);
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(24, 38, 238, 0.473);
+}
+
+.card-header > p {
+  color: rgba(255, 255, 255, 1);
 }
 
 .card-body {
