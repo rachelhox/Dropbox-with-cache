@@ -39,7 +39,7 @@
           <input type="submit" value="submit" class="btn btn-outline-primary"/> -->
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+              <span class="input-group-text" id="inputGroupFileAddon01">Upload:</span>
             </div>
             <div class="custom-file">
               <input type="file" 
@@ -49,16 +49,16 @@
               multiple
               size="50"
               onchange="myFunction()" />
-              <label class="custom-file-label" for="inputGroupFile01">Choose File</label>
+              <label class="custom-file-label" for="inputGroupFile01" for="import-file">Choose File</label>
             </div>
           
         </div>
-        <input type="submit" value="submit" class="btn btn-outline-primary"/>
+        <input type="submit" value="submit" class="btn btn-outline-primary mb-3" onclick="importFile()" type="file" name="import-file" id="import-file" accept="application/json" required/>
         <p><strong>Tip:</strong> Please select one file at a time.</p>
 
         <p id="fileInformation"></p>
 
-        <p id="files"></p>
+        <p id="files json-file"></p>
       
         </form>
       </div>
@@ -101,6 +101,19 @@
         }
         document.getElementById("fileInformation").innerHTML = txt;
       }
+
+      function importFile() {
+        var importedFile = document.getElementById('import-file').files[0];
+
+        var reader = new FileReader();
+        reader.onload = function() {
+          var fileContent = JSON.parse(reader.result);
+
+          // Do something with fileContent
+          document.getElementById('json-file').innerHTML = fileContent;  
+        };
+        reader.readAsText(importedFile); 
+    }
     </script>
     <script type="text/javascript"></script>
   </body>

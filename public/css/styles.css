@@ -1,6 +1,19 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
 .container {
   height: 100vh;
-  width: 100%;
+  overflow: hidden;
   display: flex;
   display: flex;
   justify-content: center;
@@ -23,16 +36,41 @@
   align-items: center;
 }
 
-label {
+form {
+  flex-direction: column;
   display: flex;
-  justify-content: center;
+}
+
+.input-group-text {
+  padding: 0.37rem 0.75rem;
 }
 
 .input-group-text,
 .custom-file-label,
 .custom-file-label::after {
-  color: rgb(62, 41, 255);
-  border-color: rgb(62, 41, 255);
+  color: rgba(71, 82, 243, 1);
+  border-color: rgba(71, 82, 243, 0.7);
   background-color: transparent;
   appearance: none;
+}
+
+.btn-outline-primary {
+  color: rgba(71, 82, 243, 1);
+  border-color: rgba(71, 82, 243, 0.7);
+  background-color: transparent;
+  appearance: none;
+}
+
+.btn-outline-primary:hover,
+.input-group-text:hover,
+.custom-file-input:hover,
+.custom-file-label::after:hover {
+  background-color: rgba(71, 82, 243, 0.3);
+  color: rgb(255, 255, 255);
+}
+
+.btn-outline-primary:hover {
+  background-color: rgba(71, 82, 243, 0.3);
+  border-color: rgba(71, 82, 243, 0.3);
+  color: rgb(255, 255, 255);
 }
