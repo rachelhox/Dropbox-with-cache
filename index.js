@@ -27,8 +27,6 @@ app.use(express.static(__dirname + "/public"));
 // Declare a variable named caches, define it as an empty object
 let caches = {};
 
-let JSONdata = JSON.stringify(caches, null, 2);
-
 // Promised version of Read and Write files
 
 // writeFile is a function which takes the name of the file and the body (data) for storage
