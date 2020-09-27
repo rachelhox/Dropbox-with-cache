@@ -16,14 +16,19 @@
   </head>
 
   <body onload="myFunction()">
-    <div class="screenWrapper">
-      <div class="container">
+    <div class="container">
+      <div class="card" style="max-width: 48rem;">
+        <div class="card-header">
+
         <h1>Dropbox</h1>
         <p>Click below to submit a file.</p>
-
+        </div>
+        <div class="card-body">
         <form action="/files" method="post" enctype="multipart/form-data">
-          <label>upload</label>
-          <input
+          <!-- <label>Upload</label> -->
+          <!-- <input
+            style="display: block;"
+            class="btn btn-outline-primary"
             type="file"
             name="upload"
             id="myFile"
@@ -31,13 +36,31 @@
             size="50"
             onchange="myFunction()"
           />
-          <input type="submit" value="submit" />
-        </form>
+          <input type="submit" value="submit" class="btn btn-outline-primary"/> -->
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" 
+              class="custom-file-input" 
+              name="upload"
+              id="myFile"
+              multiple
+              size="50"
+              onchange="myFunction()" />
+              <label class="custom-file-label" for="inputGroupFile01">Choose File</label>
+            </div>
+          
+        </div>
+        <input type="submit" value="submit" class="btn btn-outline-primary"/>
         <p><strong>Tip:</strong> Please select one file at a time.</p>
 
         <p id="fileInformation"></p>
 
         <p id="files"></p>
+      
+        </form>
       </div>
     </div>
 
